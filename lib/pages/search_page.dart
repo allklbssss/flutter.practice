@@ -24,41 +24,44 @@ class _SearchPageState extends State<SearchPage> {
             children: [
               HomeAppBar(),
               Container(
-                    padding: EdgeInsets.only(left: 5, right: 5),
-                    margin: EdgeInsets.only(top: 25, left: 15, right: 15),
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey[350], width: 2),
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[300],
-                    ),
-                    child: DropdownButton<String>(
-                      value: value1,
-                      isExpanded: true,
-                      icon: SvgPicture.asset(
-                        'asset/icons/down-arrow.svg',
-                        color: Colors.black,
-                        height: 15,
-                        width: 15,
-                      ),
-                      underline: Container(
-                        height: 0,
-                      ),
-                      style: TextStyle(color: Colors.black, fontSize: 17),
-                      onChanged: (String newValue1) {
-                        setState(() {
-                          value1 = newValue1;
-                        });
-                      },
-                      items: <String>['Купить', 'Снять посуточно', 'Снять на длительный срок']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
+                padding: EdgeInsets.only(left: 5, right: 5),
+                margin: EdgeInsets.only(top: 25, left: 15, right: 15),
+                height: 40,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey[350], width: 2),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.grey[300],
+                ),
+                child: DropdownButton<String>(
+                  value: value1,
+                  isExpanded: true,
+                  icon: SvgPicture.asset(
+                    'asset/icons/down-arrow.svg',
+                    color: Colors.black,
+                    height: 15,
+                    width: 15,
                   ),
+                  underline: Container(
+                    height: 0,
+                  ),
+                  style: TextStyle(color: Colors.black, fontSize: 17),
+                  onChanged: (String newValue1) {
+                    setState(() {
+                      value1 = newValue1;
+                    });
+                  },
+                  items: <String>[
+                    'Купить',
+                    'Снять посуточно',
+                    'Снять на длительный срок'
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              ),
               Row(
                 children: [
                   Container(
@@ -136,49 +139,53 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                   ),
                 ],
-                 
               ),
             ],
           ),
           Container(
-                    padding: EdgeInsets.only(left: 5, right: 5),
-                    margin: EdgeInsets.only(top: 20, left: 15, right: 15),
-                    height: 40,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey[350], width: 2),
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[300],
-                    ),
-                    child: DropdownButton<String>(
-                      value: value4,
-                      isExpanded: true,
-                      icon: SvgPicture.asset(
-                        'asset/icons/down-arrow.svg',
-                        color: Colors.black,
-                        height: 15,
-                        width: 15,
-                      ),
-                      underline: Container(
-                        height: 0,
-                      ),
-                      style: TextStyle(color: Colors.black, fontSize: 17),
-                      onChanged: (String newValue1) {
-                        setState(() {
-                          value4 = newValue1;
-                        });
-                      },
-                      items: <String>['Количество комнат', 'Студия', '1', '2', '3', '4+']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
+            padding: EdgeInsets.only(left: 5, right: 5),
+            margin: EdgeInsets.only(top: 20, left: 15, right: 15),
+            height: 40,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey[350], width: 2),
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[300],
+            ),
+            child: DropdownButton<String>(
+              value: value4,
+              isExpanded: true,
+              icon: SvgPicture.asset(
+                'asset/icons/down-arrow.svg',
+                color: Colors.black,
+                height: 15,
+                width: 15,
+              ),
+              underline: Container(
+                height: 0,
+              ),
+              style: TextStyle(color: Colors.black, fontSize: 17),
+              onChanged: (String newValue1) {
+                setState(() {
+                  value4 = newValue1;
+                });
+              },
+              items: <String>[
+                'Количество комнат',
+                'Студия',
+                '1',
+                '2',
+                '3',
+                '4+'
+              ].map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+            ),
+          ),
         ],
       ),
-      bottomNavigationBar: BottomBar(),
     );
   }
 }

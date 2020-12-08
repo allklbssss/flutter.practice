@@ -129,7 +129,6 @@ class _FlatformPage1State extends State<FlatformPage1> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomBar(),
     );
   }
 }

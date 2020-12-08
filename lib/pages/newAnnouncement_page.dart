@@ -17,69 +17,69 @@ class _NewAnnouncementPageState extends State<NewAnnouncementPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: [
-          HomeAppBar(),
-          Padding(
-            padding: EdgeInsets.only(top: 50),
-            child: Center(
-              child: Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        SwipeablePageRoute(
-                          onlySwipeFromEdge: true,
-                          builder: (BuildContext context) => BuyPage(),
-                        ),
-                      );
-                    },
-                    child: PlusAnnouncement('Купить'),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        SwipeablePageRoute(
-                          onlySwipeFromEdge: true,
-                          builder: (BuildContext context) => SalePage(),
-                        ),
-                      );
-                    },
-                    child: PlusAnnouncement('Продать'),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        SwipeablePageRoute(
-                          onlySwipeFromEdge: true,
-                          builder: (BuildContext context) => TakePage(),
-                        ),
-                      );
-                    },
-                    child: PlusAnnouncement('Снять'),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        SwipeablePageRoute(
-                          onlySwipeFromEdge: true,
-                          builder: (BuildContext context) => RentPage(),
-                        ),
-                      );
-                    },
-                    child: PlusAnnouncement('Сдать'),
-                  ),
-                ],
+        child: Column(
+          children: [
+            HomeAppBar(),
+            Padding(
+              padding: EdgeInsets.only(top: 50),
+              child: Center(
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          SwipeablePageRoute(
+                            onlySwipeFromEdge: true,
+                            builder: (BuildContext context) => BuyPage(),
+                          ),
+                        );
+                      },
+                      child: PlusAnnouncement('Купить'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          SwipeablePageRoute(
+                            onlySwipeFromEdge: true,
+                            builder: (BuildContext context) => SalePage(),
+                          ),
+                        );
+                      },
+                      child: PlusAnnouncement('Продать'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          SwipeablePageRoute(
+                            onlySwipeFromEdge: true,
+                            builder: (BuildContext context) => TakePage(),
+                          ),
+                        );
+                      },
+                      child: PlusAnnouncement('Снять'),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          SwipeablePageRoute(
+                            onlySwipeFromEdge: true,
+                            builder: (BuildContext context) => RentPage(),
+                          ),
+                        );
+                      },
+                      child: PlusAnnouncement('Сдать'),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
-      )),
-      bottomNavigationBar: BottomBar(),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

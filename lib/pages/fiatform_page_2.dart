@@ -18,7 +18,7 @@ class _FlatformPage2State extends State<FlatformPage2> {
           child: ListView(
             children: [
               Container(
-                height: 50,
+                height: 70,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(12),

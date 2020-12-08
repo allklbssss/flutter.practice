@@ -7,115 +7,104 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({
-    Key key,
-  }) : super(key: key);
-
   @override
-  _BottomBarState createState() => _BottomBarState();
+  _BottomBar createState() => _BottomBar();
 }
 
-class _BottomBarState extends State<BottomBar> {
+class _BottomBar extends State<BottomBar> {
+  int currentIndex = 0;
+  final List<Widget> _children = [
+    HomePage(),
+    SearchPage(),
+    NewAnnouncementPage(),
+    FavoritesPage(),
+    ProfilePage(),
+  ];
+  void onTappedBar(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BottomAppBar(
-      child: Container(
-        height: 55,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12), topRight: Radius.circular(12)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 3,
-            ),
-          ],
-          gradient: LinearGradient(colors: [Colors.grey[850], Colors.black87]),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-              icon: SvgPicture.asset(
-                'asset/icons/home.svg',
-                color: Colors.white,
-                width: 25,
-                height: 25,
+    return Scaffold(
+      body: _children[currentIndex],
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 55,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                spreadRadius: 3,
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => HomePage(),
-                  ),
-                );
-              },
-            ),
-            IconButton(
-              icon: SvgPicture.asset(
-                'asset/icons/search.svg',
-                color: Colors.white,
-                width: 25,
-                height: 25,
+            ],
+            gradient:
+                LinearGradient(colors: [Colors.grey[850], Colors.black87]),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: SvgPicture.asset(
+                  'asset/icons/home.svg',
+                  color: currentIndex == 0 ? Colors.white : Colors.yellow,
+                  width: 25,
+                  height: 25,
+                ),
+                onPressed: () {
+                  onTappedBar(0);
+                },
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => SearchPage(),
-                  ),
-                );
-              },
-            ),
-            IconButton(
-              icon: SvgPicture.asset(
-                'asset/icons/plus.svg',
-                color: Colors.white,
-                width: 25,
-                height: 25,
+              IconButton(
+                icon: SvgPicture.asset(
+                  'asset/icons/search.svg',
+                  color: currentIndex == 1 ? Colors.white : Colors.yellow,
+                  width: 25,
+                  height: 25,
+                ),
+                onPressed: () {
+                  onTappedBar(1);
+                },
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => NewAnnouncementPage(),
-                  ),
-                );
-              },
-            ),
-            IconButton(
-              icon: SvgPicture.asset(
-                'asset/icons/like.svg',
-                color: Colors.white,
-                width: 25,
-                height: 25,
+              IconButton(
+                icon: SvgPicture.asset(
+                  'asset/icons/plus.svg',
+                  color: currentIndex == 2 ? Colors.white : Colors.yellow,
+                  width: 25,
+                  height: 25,
+                ),
+                onPressed: () {
+                  onTappedBar(2);
+                },
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => FavoritesPage(),
-                  ),
-                );
-              },
-            ),
-            IconButton(
-              icon: SvgPicture.asset(
-                'asset/icons/user.svg',
-                color: Colors.white,
-                width: 25,
-                height: 25,
+              IconButton(
+                icon: SvgPicture.asset(
+                  'asset/icons/like.svg',
+                  color: currentIndex == 3 ? Colors.white : Colors.yellow,
+                  width: 25,
+                  height: 25,
+                ),
+                onPressed: () {
+                  onTappedBar(3);
+                },
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => ProfilePage(),
-                  ),
-                );
-              },
-            ),
-          ],
+              IconButton(
+                icon: SvgPicture.asset(
+                  'asset/icons/user.svg',
+                  color: currentIndex == 4 ? Colors.white : Colors.yellow,
+                  width: 25,
+                  height: 25,
+                ),
+                onPressed: () {
+                  onTappedBar(4);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
