@@ -1,6 +1,7 @@
 import 'package:flatform/bottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flatform/pages/flatform_page_1.dart';
+import 'package:flatform/pages/fiatform_page_2.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,8 +15,6 @@ class HomePage extends StatelessWidget {
             HomeAppBar(),
             Container(
               height: MediaQuery.of(context).size.height / 4 * 3,
-              // width: MediaQuery.of(context).size.width -
-              //     (MediaQuery.of(context).size.height / 10),
               child: Column(
                 children: [
                   Padding(
@@ -70,10 +69,10 @@ class HomePage extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('asset/images/2.jpg'),
+                          image: AssetImage('asset/images/1.png'),
                           fit: BoxFit.cover,
                         ),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: Center(
                         child: Text(
@@ -81,7 +80,6 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 30,
-                            fontWeight: FontWeight.bold,
                             letterSpacing: 12.0,
                             decoration: TextDecoration.none,
                           ),
@@ -95,7 +93,7 @@ class HomePage extends StatelessWidget {
                         context,
                         SwipeablePageRoute(
                           onlySwipeFromEdge: true,
-                          builder: (BuildContext context) => FlatformPage1(),
+                          builder: (BuildContext context) => FlatformPage2(),
                         ),
                       );
                     },
@@ -107,10 +105,10 @@ class HomePage extends StatelessWidget {
                       margin: EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('asset/images/1.jpg'),
+                          image: AssetImage('asset/images/2.png'),
                           fit: BoxFit.cover,
                         ),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: Center(
                         child: Text(
@@ -118,8 +116,7 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black87,
                             fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 12.0,
+                            letterSpacing: 8.0,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -137,18 +134,23 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class HomeAppBar extends StatelessWidget {
+class HomeAppBar extends StatefulWidget {
   const HomeAppBar({
     Key key,
   }) : super(key: key);
 
+  @override
+  _HomeAppBarState createState() => _HomeAppBarState();
+}
+
+class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+            bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
