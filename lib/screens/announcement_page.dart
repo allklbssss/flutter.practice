@@ -255,6 +255,7 @@ class _AnnouncementState extends State<Announcement> {
                 ),
               ),
               Container(
+                padding: EdgeInsets.all(10),
                 height: 100,
                 margin: EdgeInsets.only(top: 10, left: 10, right: 10),
                 decoration: BoxDecoration(

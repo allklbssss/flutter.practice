@@ -1,16 +1,15 @@
-import 'package:flatform/bottomBar.dart';
+import 'package:flatform/screens/componentss/adContainer.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
-import 'package:flatform/pages/adContainer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: must_be_immutable
-class FlatformPage1 extends StatefulWidget {
+class FlatformPage2 extends StatefulWidget {
   @override
-  _FlatformPage1State createState() => _FlatformPage1State();
+  _FlatformPage2State createState() => _FlatformPage2State();
 }
 
-class _FlatformPage1State extends State<FlatformPage1> {
+class _FlatformPage2State extends State<FlatformPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +76,7 @@ class _FlatformPage1State extends State<FlatformPage1> {
                           ),
                           Container(
                             child: Text(
-                              'Аренда',
+                              'Продажа',
                               style: TextStyle(
                                 color: Colors.white70,
                                 fontSize: 15,

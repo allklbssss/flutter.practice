@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
-import 'announcement_page.dart';
+
+import '../announcement_page.dart';
 
 class AdContainer extends StatefulWidget {
   @override

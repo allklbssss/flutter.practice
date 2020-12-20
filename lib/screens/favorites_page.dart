@@ -1,5 +1,4 @@
-import 'package:flatform/bottomBar.dart';
-import 'package:flatform/pages/adContainer.dart';
+import 'package:flatform/screens/componentss/adContainer.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

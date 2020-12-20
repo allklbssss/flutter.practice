@@ -1,9 +1,17 @@
-import 'package:flatform/bottomBar.dart';
-import 'package:flatform/pages/buy_page.dart';
-import 'package:flatform/pages/home_page.dart';
-import 'package:flatform/pages/rent_page.dart';
-import 'package:flatform/pages/sale_page.dart';
-import 'package:flatform/pages/take_page.dart';
+import 'package:flatform/screens/rentHouse_page.dart';
+import 'package:flatform/screens/addAnnouncement_page.dart';
+import 'package:flatform/screens/buyApartment_page.dart';
+import 'package:flatform/screens/buyHouse_page.dart';
+import 'package:flatform/screens/buyRoom_page.dart';
+import 'package:flatform/screens/home_page.dart';
+import 'package:flatform/screens/rentApartment_page.dart';
+import 'package:flatform/screens/rentRoom_page.dart';
+import 'package:flatform/screens/saleApartment_page.dart';
+import 'package:flatform/screens/saleHouse_page.dart';
+import 'package:flatform/screens/saleRoom_page.dart';
+import 'package:flatform/screens/takeApartment_page.dart';
+import 'package:flatform/screens/takeHouse_page.dart';
+import 'package:flatform/screens/takeRoom_page.dart';
 import 'package:flutter/material.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
@@ -21,9 +29,10 @@ class _NewAnnouncementPageState extends State<NewAnnouncementPage> {
           children: [
             HomeAppBar(),
             Padding(
-              padding: EdgeInsets.only(top: 50),
+              padding: EdgeInsets.only(top: 70),
               child: Center(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
                       onTap: () {
@@ -31,11 +40,17 @@ class _NewAnnouncementPageState extends State<NewAnnouncementPage> {
                           context,
                           SwipeablePageRoute(
                             onlySwipeFromEdge: true,
-                            builder: (BuildContext context) => BuyPage(),
+                            builder: (BuildContext context) =>
+                                AddAnnouncementPage(
+                              param1: BuyApartmentPage(),
+                              param2: SaleApartmentPage(),
+                              param3: TakeApartmentPage(),
+                              param4: RentApartmentPage(),
+                            ),
                           ),
                         );
                       },
-                      child: PlusAnnouncement('Купить'),
+                      child: PlusAnnouncement('Квартира'),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -43,11 +58,17 @@ class _NewAnnouncementPageState extends State<NewAnnouncementPage> {
                           context,
                           SwipeablePageRoute(
                             onlySwipeFromEdge: true,
-                            builder: (BuildContext context) => SalePage(),
+                            builder: (BuildContext context) =>
+                                AddAnnouncementPage(
+                              param1: BuyRoomPage(),
+                              param2: SaleRoomPage(),
+                              param3: TakeRoomPage(),
+                              param4: RentRoomPage(),
+                            ),
                           ),
                         );
                       },
-                      child: PlusAnnouncement('Продать'),
+                      child: PlusAnnouncement('Комната'),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -55,23 +76,17 @@ class _NewAnnouncementPageState extends State<NewAnnouncementPage> {
                           context,
                           SwipeablePageRoute(
                             onlySwipeFromEdge: true,
-                            builder: (BuildContext context) => TakePage(),
+                            builder: (BuildContext context) =>
+                                AddAnnouncementPage(
+                              param1: BuyHousePage(),
+                              param2: SaleHousePage(),
+                              param3: TakeHousePage(),
+                              param4: RentHousePage(),
+                            ),
                           ),
                         );
                       },
-                      child: PlusAnnouncement('Снять'),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          SwipeablePageRoute(
-                            onlySwipeFromEdge: true,
-                            builder: (BuildContext context) => RentPage(),
-                          ),
-                        );
-                      },
-                      child: PlusAnnouncement('Сдать'),
+                      child: PlusAnnouncement('Дом'),
                     ),
                   ],
                 ),
@@ -96,20 +111,20 @@ class _PlusAnnouncementState extends State<PlusAnnouncement> {
   Widget build(BuildContext context) {
     return Container(
       height: 50,
-      width: 250,
+      width: 220,
       margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         gradient: LinearGradient(
             begin: Alignment.topLeft,
-            end: Alignment(0.1, 0.8),
-            colors: [Colors.grey[800], Colors.black87]),
+            end: Alignment(0.4, 0.5),
+            colors: [Colors.black12, Colors.black26]),
       ),
       child: Center(
         child: Text(
           '${widget.parameter}',
           style: TextStyle(
-            color: Colors.white70,
+            color: Colors.black87,
             fontSize: 20,
             decoration: TextDecoration.none,
           ),

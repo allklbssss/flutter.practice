@@ -1,7 +1,6 @@
-import 'package:flatform/bottomBar.dart';
+import 'package:flatform/screens/flatform_page_1.dart';
+import 'package:flatform/screens/flatform_page_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flatform/pages/flatform_page_1.dart';
-import 'package:flatform/pages/fiatform_page_2.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 class HomePage extends StatelessWidget {
