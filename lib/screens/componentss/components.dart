@@ -55,3 +55,32 @@ class _PFTextState extends State<PFText> {
     );
   }
 }
+
+class PText extends StatefulWidget {
+  PText(this.parameter);
+  final String parameter;
+  @override
+  _PTextState createState() => _PTextState();
+}
+
+class _PTextState extends State<PText> {
+  TextEditingController _controller = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: TextField(
+        controller: _controller,
+        decoration: InputDecoration(
+          hintText: widget.parameter,
+          hintStyle: TextStyle(
+            color: Colors.black54,
+            fontSize: 15,
+            letterSpacing: 2.0,
+            decoration: TextDecoration.none,
+          ),
+        ),
+      ),
+    );
+  }
+}

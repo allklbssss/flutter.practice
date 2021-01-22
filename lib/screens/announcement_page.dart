@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'home_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,6 +11,7 @@ class Announcement extends StatefulWidget {
 class _AnnouncementState extends State<Announcement> {
   bool pressed = true;
   bool number = true;
+  Box favorites;
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +101,12 @@ class _AnnouncementState extends State<Announcement> {
                           onPressed: () {
                             setState(() {
                               pressed = !pressed;
+                              if (widget.favorites.geta(widget.id) ==
+                                  widget.name) {
+                                widget.favorites.delete(widget.id);
+                              } else {
+                                widget.favorites.put(widget.id, widget.name);
+                              }
                             });
                           },
                           icon: pressed
@@ -248,7 +256,7 @@ class _AnnouncementState extends State<Announcement> {
                     TextLinear('Категория', 'Продажа'),
                     TextLinear('Право собственности', 'Собственник'),
                     TextLinear('Общая площадь', '60 кв.м'),
-                    TextLinear('Тип дома', 'Панельный'),
+                    TextLinear('Отделка', 'С отделкой'),
                     TextLinear('Вид объекта', 'Вторичка'),
                     TextLinear('Количество комнат', '3'),
                   ],

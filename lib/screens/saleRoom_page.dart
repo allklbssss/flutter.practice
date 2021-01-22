@@ -42,43 +42,11 @@ class _SaleRoomPageState extends State<SaleRoomPage> {
             ),
           ),
           PFText('Адрес'),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Container(
-                padding: EdgeInsets.only(left: 5, top: 5),
-                height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey[300],
-                ),
-                child: Text('Укажите место',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 17,
-                      letterSpacing: 1.0,
-                      decoration: TextDecoration.none,
-                    ))),
-          ),
+          PText('Укажите место'),
           PFText('Площадь комнаты'),
           SliderSContainer(),
           PFText('Описание объявления'),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Container(
-                padding: EdgeInsets.only(left: 5, top: 5),
-                height: 150,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey[300],
-                ),
-                child: Text('Введите описание',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 17,
-                      letterSpacing: 1.0,
-                      decoration: TextDecoration.none,
-                    ))),
-          ),
+          PText('Введите описание'),
           PFText('Цена'),
           SliderContainer(),
           Container(
