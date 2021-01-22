@@ -6,8 +6,8 @@ class SliderContainer extends StatefulWidget {
 }
 
 class _SliderContainerState extends State<SliderContainer> {
-  RangeValues values = RangeValues(1, 100);
-  RangeLabels labels = RangeLabels('1', '100');
+  RangeValues values = RangeValues(1, 100000);
+  RangeLabels labels = RangeLabels('1', '100.000+');
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +15,15 @@ class _SliderContainerState extends State<SliderContainer> {
       activeColor: Colors.grey[850],
       inactiveColor: Colors.grey[400],
       min: 1,
-      max: 100,
+      max: 100000,
       values: values,
       labels: labels,
-      divisions: 100,
+      divisions: 1000,
       onChanged: (value) {
         print('START: ${value.start}, END: ${value.end}');
         setState(() {
           values = value;
-          labels = RangeLabels('${value.start.toInt().toString()}\₽',
-              '${value.end.toInt().toString()}\₽');
+          labels = RangeLabels('${value.start.toInt().toString()}\₽', '${value.end.toInt().toString()}\₽');
         });
       },
     );
@@ -54,8 +53,7 @@ class _SliderSContainerState extends State<SliderSContainer> {
         print('START: ${value.start}, END: ${value.end}');
         setState(() {
           values = value;
-          labels = RangeLabels('${value.start.toInt().toString()}\м²',
-              '${value.end.toInt().toString()}\м²');
+          labels = RangeLabels('${value.start.toInt().toString()}\м²', '${value.end.toInt().toString()}\м²');
         });
       },
     );

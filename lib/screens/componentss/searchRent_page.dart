@@ -51,8 +51,7 @@ class _SearchRentState extends State<SearchRent> {
                     value1 = newValue1;
                   });
                 },
-                items: <String>['Квартира', 'Комната']
-                    .map<DropdownMenuItem<String>>((String value) {
+                items: <String>['Квартира', 'Комната'].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -98,7 +97,7 @@ class _SearchRentState extends State<SearchRent> {
                     ),
                   );
                 },
-                child: Button('Показать объявления'),
+                child: Center(child: Button('Показать объявления')),
               ),
             ),
           ],

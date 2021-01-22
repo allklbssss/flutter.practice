@@ -23,9 +23,7 @@ class _AnnouncementState extends State<Announcement> {
               Container(
                 height: 60,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10)),
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black12,
@@ -33,9 +31,7 @@ class _AnnouncementState extends State<Announcement> {
                     ),
                   ],
                   gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment(0.5, 0.8),
-                      colors: [Colors.grey[850], Colors.black87]),
+                      begin: Alignment.topLeft, end: Alignment(0.5, 0.8), colors: [Colors.grey[850], Colors.black87]),
                 ),
                 child: Row(
                   children: [
@@ -99,15 +95,15 @@ class _AnnouncementState extends State<Announcement> {
                         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                         child: IconButton(
                           onPressed: () {
-                            setState(() {
-                              pressed = !pressed;
-                              if (widget.favorites.geta(widget.id) ==
-                                  widget.name) {
-                                widget.favorites.delete(widget.id);
-                              } else {
-                                widget.favorites.put(widget.id, widget.name);
-                              }
-                            });
+                            // setState(() {
+                            //   pressed = !pressed;
+                            //   if (widget.favorites.geta(id) ==
+                            //       widget.name) {
+                            //     widget.favorites.delete(widget.id);
+                            //   } else {
+                            //     widget.favorites.put(widget.id, widget.name);
+                            //   }
+                            // });
                           },
                           icon: pressed
                               ? SvgPicture.asset(
@@ -238,9 +234,7 @@ class _AnnouncementState extends State<Announcement> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment(0.5, 0.8),
-                      colors: [Colors.white, Colors.grey[300]]),
+                      begin: Alignment.topLeft, end: Alignment(0.5, 0.8), colors: [Colors.white, Colors.grey[300]]),
                 ),
                 child: Column(
                   children: [
@@ -269,9 +263,7 @@ class _AnnouncementState extends State<Announcement> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment(0.5, 0.8),
-                      colors: [Colors.white, Colors.grey[300]]),
+                      begin: Alignment.topLeft, end: Alignment(0.5, 0.8), colors: [Colors.white, Colors.grey[300]]),
                 ),
                 child: Text(
                   'Какое-то супер крутое описание',

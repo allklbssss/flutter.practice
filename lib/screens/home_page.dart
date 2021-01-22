@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
+                    padding: EdgeInsets.only(
                       top: 10,
                       left: 10,
                       right: 10,
@@ -57,10 +57,8 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      width: MediaQuery.of(context).size.width -
-                          MediaQuery.of(context).size.width / 12,
-                      height: MediaQuery.of(context).size.height / 3 -
-                          MediaQuery.of(context).size.height / 20,
+                      width: MediaQuery.of(context).size.width - MediaQuery.of(context).size.width / 12,
+                      height: MediaQuery.of(context).size.height / 3 - MediaQuery.of(context).size.height / 20,
                       margin: EdgeInsets.only(
                         top: 25,
                         left: 15,
@@ -97,10 +95,8 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      width: MediaQuery.of(context).size.width -
-                          MediaQuery.of(context).size.width / 12,
-                      height: MediaQuery.of(context).size.height / 3 -
-                          MediaQuery.of(context).size.height / 20,
+                      width: MediaQuery.of(context).size.width - MediaQuery.of(context).size.width / 12,
+                      height: MediaQuery.of(context).size.height / 3 - MediaQuery.of(context).size.height / 20,
                       margin: EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         image: DecorationImage(
@@ -147,8 +143,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
     return Container(
       height: 50,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,

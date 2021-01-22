@@ -52,8 +52,7 @@ class _SearchBuyState extends State<SearchBuy> {
                     value1 = newValue1;
                   });
                 },
-                items: <String>['Вторичка', 'Новостройка', 'Дом']
-                    .map<DropdownMenuItem<String>>((String value) {
+                items: <String>['Вторичка', 'Новостройка', 'Дом'].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -88,14 +87,8 @@ class _SearchBuyState extends State<SearchBuy> {
                     value2 = newValue1;
                   });
                 },
-                items: <String>[
-                  'Количество комнат',
-                  'Студия',
-                  '1',
-                  '2',
-                  '3',
-                  '4+'
-                ].map<DropdownMenuItem<String>>((String value) {
+                items: <String>['Количество комнат', 'Студия', '1', '2', '3', '4+']
+                    .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
                     child: Text(value),
@@ -108,7 +101,7 @@ class _SearchBuyState extends State<SearchBuy> {
             PFText('Общая площадь'),
             SliderSContainer(),
             Container(
-              padding: EdgeInsets.only(left: 15, right: 15),
+              // padding: EdgeInsets.only(left: 15, right: 15),
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -119,7 +112,7 @@ class _SearchBuyState extends State<SearchBuy> {
                     ),
                   );
                 },
-                child: Button('Показать объявления'),
+                child: Center(child: Button('Показать объявления')),
               ),
             ),
           ],

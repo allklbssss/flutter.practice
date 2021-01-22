@@ -1,96 +1,85 @@
 import 'package:flatform/screens/componentss/adContainer.dart';
+import 'package:flatform/screens/componentss/rentAndSellTopBar.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'home_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: must_be_immutable
 class FlatformPage1 extends StatefulWidget {
+  // var _hiveBox;
+  // var _data;
+  // List<AdContainer> content = [];
+  // @override
+  // void initState() async {
+  //   _hiveBox = Hive.box('rent');
+  //   _data = await _hiveBox.get('content');
+  //   print('jjjjjjjjjjjjjjjjjjj');
+  //   print(_data);
+  // content = await _generate();
+  // print(content);
+  // super.initState();
+  // }
+
+  // Future<List<AdContainer>> _generate() async {
+  //   return List.generate(
+  //     _data.length,
+  //     (int index) => AdContainer(
+  //       image: _data[index].image,
+  //       price: _data[index].price,
+  //       name: _data[index].name,
+  //       isFavorite: _data[index].isFavorite,
+  //     ),
+  //   );
+  // }
+
   @override
   _FlatformPage1State createState() => _FlatformPage1State();
 }
 
 class _FlatformPage1State extends State<FlatformPage1> {
+  // List<AdContainer> content = [];
+  // _FlatformPage1State({@required this.content});
+
   @override
   Widget build(BuildContext context) {
+    // var _hiveBox;
+    // var _data;
+    // List<AdContainer> content = [];
+
+    // Future<List<AdContainer>> _generate() async {
+    //   return List.generate(
+    //     _data.length,
+    //     (int index) => AdContainer(
+    //       image: _data[index].image,
+    //       price: _data[index].price,
+    //       name: _data[index].name,
+    //       isFavorite: _data[index].isFavorite,
+    //     ),
+    //   );
+    // }
+
+    // @override
+    // void initState() async {
+    //   print(2);
+    //   _hiveBox = await Hive.openBox('rent');
+    //   _data = await _hiveBox.get('content');
+    //   print('jjjjjjjjjjjjjjjjjjj');
+    //   print(_data);
+    //   content = await _generate();
+    //   print(content);
+
+    //   super.initState();
+    //   print(1);
+    // }
+
+    // // _init();
     return Scaffold(
       body: SafeArea(
         child: Container(
           child: ListView(
             children: [
-              Container(
-                height: 70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 3,
-                    ),
-                  ],
-                  gradient: LinearGradient(
-                      colors: [Colors.grey[850], Colors.black87]),
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => HomePage(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: SvgPicture.asset(
-                          'asset/icons/left-arrow.svg',
-                          color: Colors.white,
-                          width: 25,
-                          height: 25,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                              right: 260,
-                              top: 15,
-                            ),
-                          ),
-                          Container(
-                            child: Text(
-                              'flatform',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 12.0,
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            child: Text(
-                              'Аренда',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 15,
-                                letterSpacing: 3.0,
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              CustomTopNavigationBar(label: "Аренда"),
               Container(
                 padding: EdgeInsets.only(
                   top: 8,
@@ -114,16 +103,17 @@ class _FlatformPage1State extends State<FlatformPage1> {
                   ),
                 ),
               ),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
+              ...List.generate(
+                Hive.box('rent').get('content').length,
+                (int index) => AdContainer(
+                  image: Hive.box('rent').get('content')[index].image,
+                  price: Hive.box('rent').get('content')[index].price,
+                  name: Hive.box('rent').get('content')[index].name,
+                  isFavorite: Hive.box('rent').get('content')[index].isFavorite,
+                  category: 'rent',
+                  id: index,
+                ),
+              )
             ],
           ),
         ),
