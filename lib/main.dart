@@ -2,17 +2,10 @@ import 'package:flatform/bottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:provider/provider.dart';
 
-import 'data/rent.dart';
 import 'models/ad.dart';
 
 void main() async {
-  // final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
-  // Hive.init(appDocumentDir.path);
-
-  // await Hive.openBox<String>('favorites');
-
   WidgetsFlutterBinding.ensureInitialized();
   final appDocDir = await getApplicationDocumentsDirectory();
 
@@ -50,18 +43,13 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<RentData>(create: (_) => RentData()),
-      ],
-      child: MaterialApp(
-        title: 'flatform',
-        theme: ThemeData(
-          fontFamily: 'Quicksand',
-        ),
-        debugShowCheckedModeBanner: false,
-        home: BottomBar(),
+    return MaterialApp(
+      title: 'flatform',
+      theme: ThemeData(
+        fontFamily: 'Quicksand',
       ),
+      debugShowCheckedModeBanner: false,
+      home: BottomBar(),
     );
   }
 }
