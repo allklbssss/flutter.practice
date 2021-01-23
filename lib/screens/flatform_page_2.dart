@@ -1,5 +1,7 @@
 import 'package:flatform/screens/componentss/adContainer.dart';
+import 'package:flatform/screens/componentss/rentAndSellTopBar.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'home_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,80 +19,7 @@ class _FlatformPage2State extends State<FlatformPage2> {
         child: Container(
           child: ListView(
             children: [
-              Container(
-                height: 70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      spreadRadius: 3,
-                    ),
-                  ],
-                  gradient: LinearGradient(
-                      colors: [Colors.grey[850], Colors.black87]),
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => HomePage(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: SvgPicture.asset(
-                          'asset/icons/left-arrow.svg',
-                          color: Colors.white,
-                          width: 25,
-                          height: 25,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                              right: 260,
-                              top: 15,
-                            ),
-                          ),
-                          Container(
-                            child: Text(
-                              'flatform',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 12.0,
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            child: Text(
-                              'Продажа',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 15,
-                                letterSpacing: 3.0,
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              CustomTopNavigationBar(label: 'Покупка'),
               Container(
                 padding: EdgeInsets.only(
                   top: 8,
@@ -114,16 +43,17 @@ class _FlatformPage2State extends State<FlatformPage2> {
                   ),
                 ),
               ),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
-              AdContainer(),
+              ...List.generate(
+                Hive.box('sell').get('content').length,
+                (int index) => AdContainer(
+                  image: Hive.box('sell').get('content')[index].image,
+                  price: Hive.box('sell').get('content')[index].price,
+                  name: Hive.box('sell').get('content')[index].name,
+                  isFavorite: Hive.box('sell').get('content')[index].isFavorite,
+                  category: 'sell',
+                  id: index,
+                ),
+              )
             ],
           ),
         ),

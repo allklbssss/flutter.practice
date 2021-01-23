@@ -18,14 +18,13 @@ class _SearchAnnouncementState extends State<SearchAnnouncement> {
             Column(
               children: [
                 HomeAppBar(),
-                AdContainer(),
-                AdContainer(),
-                AdContainer(),
-                AdContainer(),
-                AdContainer(),
-                AdContainer(),
-                AdContainer(),
-                AdContainer(),
+                // AdContainer(
+                //   name: "Классная квартира",
+                //   price: 15000,
+                //   image: 'asset/images/5.jpg',
+                //   category: 'sell',
+                //   id: 1000,
+                // ),
               ],
             )
           ],
