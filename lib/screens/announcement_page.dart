@@ -1,15 +1,30 @@
+import 'package:flatform/models/ad.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'home_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Announcement extends StatefulWidget {
+  String image;
+  int price;
+  String name;
+  bool isFavorite;
+  String category;
+  int id;
+
+  Announcement({
+    @required this.image,
+    @required this.price,
+    @required this.name,
+    @required this.category,
+    @required this.id,
+    @required this.isFavorite,
+  });
   @override
   _AnnouncementState createState() => _AnnouncementState();
 }
 
 class _AnnouncementState extends State<Announcement> {
-  bool pressed = true;
   bool number = true;
   Box favorites;
 
@@ -74,15 +89,16 @@ class _AnnouncementState extends State<Announcement> {
                 padding: EdgeInsets.only(top: 10),
                 child: Align(
                   alignment: Alignment.center,
-                  child: Image.asset('asset/images/6.png'),
+                  child: Image.asset(widget.image),
                 ),
               ),
               Container(
                 padding: EdgeInsets.only(left: 10, right: 10),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Название объявления',
+                      widget.name,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
@@ -90,29 +106,31 @@ class _AnnouncementState extends State<Announcement> {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 50, top: 5),
+                      // padding: EdgeInsets.only(left: 50, top: 5),
                       child: Container(
                         padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                         child: IconButton(
                           onPressed: () {
-                            // setState(() {
-                            //   pressed = !pressed;
-                            //   if (widget.favorites.geta(id) ==
-                            //       widget.name) {
-                            //     widget.favorites.delete(widget.id);
-                            //   } else {
-                            //     widget.favorites.put(widget.id, widget.name);
-                            //   }
-                            // });
+                            var favorites = Hive.box('favorites');
+                            var obj = Ad(image: widget.image, name: widget.name, price: widget.price, isFavorite: true);
+                            if (widget.isFavorite) {
+                              favorites.add(obj);
+                            } else {
+                              favorites.delete(obj);
+                            }
+                            Hive.box(widget.category).get('content')[widget.id].isFavorite = !widget.isFavorite;
+                            setState(() {
+                              widget.isFavorite = !widget.isFavorite;
+                            });
                           },
-                          icon: pressed
+                          icon: widget.isFavorite
                               ? SvgPicture.asset(
-                                  'asset/icons/like.svg',
+                                  'asset/icons/likss.svg',
                                   width: 25,
                                   height: 25,
                                 )
                               : SvgPicture.asset(
-                                  'asset/icons/likss.svg',
+                                  'asset/icons/like.svg',
                                   width: 25,
                                   height: 25,
                                 ),
@@ -125,7 +143,7 @@ class _AnnouncementState extends State<Announcement> {
               Padding(
                 padding: EdgeInsets.only(left: 10),
                 child: Text(
-                  'Цена, руб',
+                  '${widget.price} руб',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 23,

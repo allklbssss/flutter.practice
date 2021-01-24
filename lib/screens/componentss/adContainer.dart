@@ -10,7 +10,7 @@ class AdContainer extends StatefulWidget {
   String image;
   int price;
   String name;
-  bool isFavorite = false;
+  bool isFavorite;
   String category;
   int id;
 
@@ -72,7 +72,14 @@ class _AdContainerState extends State<AdContainer> {
                         context,
                         SwipeablePageRoute(
                           onlySwipeFromEdge: true,
-                          builder: (BuildContext context) => Announcement(),
+                          builder: (BuildContext context) => Announcement(
+                            isFavorite: widget.isFavorite,
+                            name: widget.name,
+                            price: widget.price,
+                            category: widget.category,
+                            id: widget.id,
+                            image: widget.image,
+                          ),
                         ),
                       );
                     },
